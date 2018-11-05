@@ -1,0 +1,9 @@
+Theme: Seal Swim School
+1. Intro page with fancy effects like hover images
+2. What we do 
+3. Sign ups
+4. Meet the staff
+5. Alumni/graduates
+6. Map of the facility
+7. Community outreach functions
+
