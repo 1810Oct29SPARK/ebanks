@@ -15,7 +15,7 @@ public class Driver {
 	}
 
 	
-	public static  void init(){
+	public static void init(){
 
 		
 		System.out.println("this is the point of entry into my program");

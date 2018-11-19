@@ -10,6 +10,7 @@ function initMap() {
     var marker = new google.maps.Marker({
         position:{lat:25.7907,lng:-80.1300},
         map:map
+        
     });
 }
 
@@ -17,8 +18,5 @@ function sendEmail() {
     alert("Thanks for signing up!");
 }
 
-function checkWeather() {
-    alert("Yes, it is safe to swim!");
-}
 
 

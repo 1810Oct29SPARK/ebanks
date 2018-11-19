@@ -221,7 +221,7 @@ p.rightpad {
 }
 
 table.forms {
-  margin: auto;
+  margin: 0 auto;
   overflow: auto;
 }
 
@@ -250,4 +250,35 @@ img.sunimg {
   width: 75px;
   display: block;
   margin: 0 auto;
+}
+
+table.hours, td.hours3 {
+  border: 3px solid black;
+}
+
+table.hours {
+   border-collapse: collapse;
+   width: 80%; 
+   margin-left:15%; 
+   margin-right:15%;
+}
+
+td.toptab {
+   height: 50px;
+   padding: 10px;
+   background-color: #66ccff;
+   color: white;
+   border: 3px solid black;
+   font-family: 'Chewy', cursive;
+   text-align: center;
+}
+
+td.hours3 {
+   padding: 10px;
+   text-align: center;
+   font-family: 'Limelight', cursive;
+}
+
+tr.hours2 {
+   height: 50px;
 }
