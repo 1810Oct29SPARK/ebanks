@@ -16,6 +16,10 @@ import com.revature.service.AuthenticationService;
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	AuthenticationService authService = new AuthenticationService();
 
 	//return Login page for GET request
@@ -23,6 +27,7 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("test");
 		req.getRequestDispatcher("login.html").forward(req, resp);
+		
 	}
 	
 	//handle POST request from form on Login page

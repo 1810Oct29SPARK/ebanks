@@ -27,7 +27,7 @@ public class Login {
 	public void setE_ID(int e_ID) {
 		E_ID = e_ID;
 	}
-	public static String getLOGIN() {
+	public String getLOGIN() {
 		return LOGIN;
 	}
 	public void setLOGIN(String lOGIN) {
