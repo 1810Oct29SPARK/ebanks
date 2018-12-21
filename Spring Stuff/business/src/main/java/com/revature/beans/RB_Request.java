@@ -14,6 +14,7 @@ public class RB_Request {
 	private int RB_REQ_AMT;
 	private int APPROVAL;
 	private int S_ID;
+	
 	public int getRB_REQ_ID() {
 		return RB_REQ_ID;
 	}

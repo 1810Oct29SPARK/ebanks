@@ -17,4 +17,6 @@ public interface RB_RequestDAO {
 	public RB_Request updateRB_Request (int rB_REQ_ID, int e_ID, int rB_REQ_AMT, int aPPROVAL, int s_ID);
 	
 	public RB_Request superUpdateRB_Request (int rB_REQ_ID, int e_ID, int rB_REQ_AMT, int aPPROVAL, int s_ID);
+	
+	public void uploadPhoto (int rB_REQ_ID);
 }

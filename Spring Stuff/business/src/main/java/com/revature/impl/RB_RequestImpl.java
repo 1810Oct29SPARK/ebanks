@@ -1,5 +1,7 @@
 package com.revature.impl;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -137,5 +139,24 @@ public class RB_RequestImpl implements RB_RequestDAO {
 	public RB_Request superUpdateRB_Request(int rB_REQ_ID, int e_ID, int rB_REQ_AMT, int aPPROVAL, int s_ID) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	@Override
+	public void uploadPhoto (int rB_REQ_ID) {
+		try (Connection con = ConnectionUtil.getConnection(filename)) {
+			String sql = "UPDATE ACCOUNTS SET PHOTO = ? WHERE RB_ID = ?";
+			PreparedStatement p = con.prepareStatement(sql);
+			File blob = new File ("receipt file path");
+			FileInputStream in = new FileInputStream(blob);
+			p.setBinaryStream(1, in);
+			p.setInt(2, rB_REQ_ID);
+			p.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

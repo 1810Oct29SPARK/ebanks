@@ -20,7 +20,7 @@ public class EmployeeImpl implements EmployeeDAO {
 	public List<Employee> getEmployee() {
 		List<Employee> el = new ArrayList<>();
 		try(Connection con = ConnectionUtil.getConnection(filename)) {
-			String sql = "SELECT E.E_ID, E.FIRSTNAME, E.LASTNAME, E.EMAIL, E.PHONE, E.ADDRESS, E.L_ID " + 
+			String sql = "SELECT E.E_ID, E.FIRSTNAME, E.LASTNAME, E.EMAIL, E.PHONE, E.ADDRESS, E.SUPERVISOR, E.REPORTSTO " + 
 					"FROM EMPLOYEE E";
 			//statement needed to run the string in sql
 			Statement stmt = con.createStatement();
@@ -33,8 +33,9 @@ public class EmployeeImpl implements EmployeeDAO {
 			    String EMAIL = ers.getString("EMAIL");
 			    String PHONE = ers.getString("PHONE");
 			    String ADDRESS = ers.getString("ADDRESS");
-			    int L_ID = ers.getInt("L_ID");
-			    el.add(new Employee(E_ID, FIRSTNAME, LASTNAME, EMAIL, PHONE, ADDRESS, L_ID));
+			    int SUPERVISOR = ers.getInt("SUPERVISOR");
+			    int REPORTSTO = ers.getInt("REPORTSTO");
+			    el.add(new Employee(E_ID, FIRSTNAME, LASTNAME, EMAIL, PHONE, ADDRESS, SUPERVISOR, REPORTSTO));
 			   
 			}
 			
@@ -52,7 +53,7 @@ public class EmployeeImpl implements EmployeeDAO {
 	public Employee getEmployeeById (int e_ID) {
 		Employee n = null;
 		try(Connection con = ConnectionUtil.getConnection(filename)) {
-			String sql = "SELECT E_ID, FIRSTNAME, LASTNAME, EMAIL, PHONE, ADDRESS, L_ID FROM EMPLOYEE WHERE E_ID=?";
+			String sql = "SELECT E_ID, FIRSTNAME, LASTNAME, EMAIL, PHONE, ADDRESS, SUPERVISOR, REPORTSTO FROM EMPLOYEE WHERE E_ID=?";
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setInt(1, e_ID);
 			ResultSet ers = stmt.executeQuery();
@@ -63,8 +64,9 @@ public class EmployeeImpl implements EmployeeDAO {
 			    String EMAIL = ers.getString("EMAIL");
 			    String PHONE = ers.getString("PHONE");
 			    String ADDRESS = ers.getString("ADDRESS");
-			    int L_ID = ers.getInt("L_ID");
-			    n = new Employee(E_ID, FIRSTNAME, LASTNAME, EMAIL, PHONE, ADDRESS, L_ID);
+			    int SUPERVISOR = ers.getInt("SUPERVISOR");
+			    int REPORTSTO = ers.getInt("REPORTSTO");
+			    n = new Employee(E_ID, FIRSTNAME, LASTNAME, EMAIL, PHONE, ADDRESS, SUPERVISOR, REPORTSTO);
 			   
 			}
 		} catch (SQLException e) {
@@ -79,10 +81,9 @@ public class EmployeeImpl implements EmployeeDAO {
 	}
 
 	@Override
-	public Employee createEmployee(int e_ID, String fIRSTNAME, String lASTNAME, String eMAIL, String pHONE,
-			String aDDRESS, int l_ID) {
+	public Employee createEmployee (int e_ID, String fIRSTNAME, String lASTNAME, String eMAIL, String pHONE, String aDDRESS, int sUPERVISOR, int rEPORTSTO) {
 		try (Connection con = ConnectionUtil.getConnection(filename)) {
-			String sql = "INSERT INTO EMPLOYEE VALUES (?, ?, ?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO EMPLOYEE VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 			PreparedStatement p = con.prepareStatement(sql);
 			p.setInt(1, e_ID);
 			p.setString(2, fIRSTNAME);
@@ -90,7 +91,8 @@ public class EmployeeImpl implements EmployeeDAO {
 			p.setString(4, eMAIL);
 			p.setString(5, pHONE);
 			p.setString(6, aDDRESS);
-			p.setInt(7, l_ID);
+			p.setInt(7, sUPERVISOR);
+			p.setInt(8, rEPORTSTO);
 			p.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -122,9 +124,9 @@ public class EmployeeImpl implements EmployeeDAO {
 		}
 
 	@Override
-	public Employee updateEmployee(int e_ID, String fIRSTNAME, String lASTNAME, String eMAIL, String pHONE, String aDDRESS) {
+	public Employee updateEmployee (int e_ID, String fIRSTNAME, String lASTNAME, String eMAIL, String pHONE, String aDDRESS, int sUPERVISOR, int rEPORTSTO) {
 		try (Connection con = ConnectionUtil.getConnection(filename)) {
-			String sql = "UPDATE EMPLOYEE SET FIRSTNAME=?, LASTNAME=?, EMAIL=?, PHONE=?, ADDRESS=? WHERE E_ID=?";
+			String sql = "UPDATE EMPLOYEE SET FIRSTNAME=?, LASTNAME=?, EMAIL=?, PHONE=?, ADDRESS=?, SUPERVISOR=?, REPORTSTO=? WHERE E_ID=?";
 			PreparedStatement p = con.prepareStatement(sql);
 			p.setString(1, fIRSTNAME);
 			p.setString(2, lASTNAME);
@@ -132,6 +134,8 @@ public class EmployeeImpl implements EmployeeDAO {
 			p.setString(4, pHONE);
 			p.setString(5, aDDRESS);
 			p.setInt(6, e_ID);
+			p.setInt(7, sUPERVISOR);
+			p.setInt(8, rEPORTSTO);
 			p.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -142,4 +146,5 @@ public class EmployeeImpl implements EmployeeDAO {
 		}
 		return null;
 	}
+
 }
