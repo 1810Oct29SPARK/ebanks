@@ -1,0 +1,144 @@
+body {
+    background-color: navy !important;
+}
+
+.jumbotron {
+    background-image: url(http://www.southwhidbeyrecord.com/wp-content/uploads/2018/07/12715469_web1_180714-WNT-Seal1-JH-MED.jpg) !important; 
+    background-position: center center;
+}
+
+.jumbotitle {
+    text-align: center;
+    color:white;
+    text-shadow: 2px 2px rgb(15, 5, 5);
+    font-weight: bold;
+}
+
+.lead {
+    text-align: center;
+    color: navy;
+    font-weight: bold;
+}
+
+.center {
+    text-align: center;
+    color: navy;
+    font-weight: bold;
+}
+
+hr.style2 {
+    border-top: 5px double navy;
+    width: 50%;
+}
+
+.row {
+    background-color: navy;
+    color: white;
+}
+
+.btn {
+    background-color: tan !important;
+}
+
+.whitecolor {
+    color: white;
+}
+
+.main-div {
+    border-radius: 2px;
+    margin: 10px auto 30px;
+    max-width: 30%;
+
+}
+
+.login-form  .btn.btn-primary {
+    font-size: 14px;
+    width: 30%;
+    height: 50px;
+    line-height: 50px;
+    padding: 0;
+  }
+
+  .wrapper {
+      text-align: center;
+  }
+
+  .login-form .form-control {
+    border: 1px solid #d4d4d4;
+    border-radius: 4px;
+    font-size: 14px;
+    height: 50px;
+    line-height: 50px;
+  }
+
+  .formsize {
+      width: 30%;
+  }
+
+  .col-2.col-form-label {
+      color: white;
+  }
+
+  .col-10 {
+    font-size: 14px;
+    width: 35%;
+    height: 50px;
+    line-height: 50px;
+    padding: 0;
+  }
+
+  .custom-file {
+    font-size: 14px;
+    width: 30%;
+    height: 50px;
+    line-height: 50px;
+    padding: 0;
+  }
+
+  .input-group-append {
+    font-size: 14px;
+    width: 30%;
+    height: 50px;
+    line-height: 50px;
+    padding: 0;
+  }
+
+  .whitecenter {
+      color: white;
+      text-align: center;
+  }
+
+  .btn.btn-primary {
+      width: 30%;
+  }
+
+  hr.style3 {
+    border-top: 3px double white;
+    width: 50%;
+}
+
+.sealicons {
+    margin: auto;
+    width: 50%;
+    padding: 5px;
+}
+
+hr.style3 {
+    border-top: 2x ridge white;
+    width: 100%;
+}
+
+p.footertext {
+    color: white;
+}
+
+.replaceseal {
+    background-image: url(www.antarctica.gov.au/__data/assets/image/0011/148367/varieties/antarctic.jpg) !important; 
+    background-position: center center;
+}
+
+
+
+  .panel.panel-default {
+    background-color:rgb(41, 169, 255);
+  }

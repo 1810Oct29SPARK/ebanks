@@ -17,5 +17,6 @@ public interface EmployeeDAO {
 	
 	public Employee updateEmployee (int e_ID, String lOGIN, String pASS, String fIRSTNAME, String lASTNAME, String eMAIL, String pHONE,
 			String aDDRESS, int sUPERVISOR, int rEPORTSTO);
- 	
+	
+	public Employee getEmployeeByLogin(String lOGIN);
 }

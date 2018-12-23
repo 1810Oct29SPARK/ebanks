@@ -15,23 +15,18 @@ public class LogoutServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.setContentType("text/html");
-		PrintWriter pw = resp.getWriter();
-		req.getRequestDispatcher("base.html").include(req, resp);
-		HttpSession session = req.getSession(false);
-		if (session != null) {
-			session.invalidate();
-		}
-		pw.println("<p>You are succesffully logged out>/p>");
-		pw.println("</div>");
-		pw.println("<a href=\"login\">back to login</a>");
-		pw.println("</body> </html>");
-	}
-	
-	@Override 
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		doGet(req, resp);
-	}
+		// TODO Auto-generated method stub
+				HttpSession session = req.getSession(false);
+				if (session != null) {
+					req.getRequestDispatcher("logout.html").forward(req, resp);
+				} 
+				else 
+				{
+					System.out.println("checking logout");
+					resp.sendRedirect("login");
+				}
+			}
+
 
 
 }

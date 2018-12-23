@@ -22,7 +22,7 @@ public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	AuthenticationService authService = new AuthenticationService();
 
-	//return Login page for GET request
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.getRequestDispatcher("login.html").forward(req, resp);
@@ -40,8 +40,8 @@ public class LoginServlet extends HttpServlet {
 		resp.setContentType("text/html");
 		//grab params from request 
 		Credentials cred = new Credentials(req.getParameter("username"),req.getParameter("password"));
-		//attempt to authenticate the user
 		Employee e = authService.isValidUser(cred);
+		System.out.println(e);
 		//set user information as session attributes
 		if (e != null) {
 			session.setAttribute("e_id", e.getE_ID());
@@ -54,8 +54,10 @@ public class LoginServlet extends HttpServlet {
 			session.setAttribute("supervisor", e.getSUPERVISOR());
 			session.setAttribute("reportsto", e.getREPORTSTO());
 			session.setAttribute("problem", null);
-			//redirect user to profile page if authenticated
-			resp.sendRedirect("profile");
+			
+
+			resp.sendRedirect("index.html");
+			
 		} else {
 			session.setAttribute("problem", "invalid credentials");
 			//redirect user to login page if authentication fails

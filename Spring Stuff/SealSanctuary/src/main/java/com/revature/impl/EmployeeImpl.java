@@ -48,7 +48,11 @@ public class EmployeeImpl implements EmployeeDAO {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		return el;
+		for(Employee emp: el)
+		{
+			System.out.println(emp.toString());
+		}
+			return el;
 	}
 
 	@Override
@@ -152,4 +156,38 @@ public class EmployeeImpl implements EmployeeDAO {
 		return null;
 	}
 
+	@Override
+	public Employee getEmployeeByLogin(String lOGIN) {
+		Employee b = null;
+		try(Connection con = ConnectionUtil.getConnection(filename)) {
+
+			String sql = "SELECT E.E_ID, E.LOGIN, E.PASS, E.FIRSTNAME, E.LASTNAME, E.EMAIL, E.PHONE, E.ADDRESS, E.SUPERVISOR, E.REPORTSTO " + 
+					"FROM EMPLOYEE E " + 
+					"WHERE LOGIN = ?";
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, lOGIN);
+			ResultSet ers = pstmt.executeQuery(); //table of the results
+			while(ers.next()) {
+				int E_ID = ers.getInt("E_ID");
+				String LOGIN = ers.getString("LOGIN");
+				String PASS = ers.getString("PASS");
+			    String FIRSTNAME = ers.getString("FIRSTNAME");
+			    String LASTNAME = ers.getString("LASTNAME");
+			    String EMAIL = ers.getString("EMAIL");
+			    String PHONE = ers.getString("PHONE");
+			    String ADDRESS = ers.getString("ADDRESS");
+			    int SUPERVISOR = ers.getInt("SUPERVISOR");
+			    int REPORTSTO = ers.getInt("REPORTSTO");
+			    b = new Employee(E_ID, LOGIN, PASS, FIRSTNAME, LASTNAME, EMAIL, PHONE, ADDRESS, SUPERVISOR, REPORTSTO);
+			   
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return b;
+}
 }

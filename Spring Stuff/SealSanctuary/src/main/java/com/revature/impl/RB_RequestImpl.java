@@ -50,12 +50,12 @@ public class RB_RequestImpl implements RB_RequestDAO {
 	}
 
 	@Override
-	public RB_Request getRB_RequestById(int rB_REQ_ID) {
+	public RB_Request getRB_RequestById(int e_ID) {
 		RB_Request n = null;
 		try(Connection con = ConnectionUtil.getConnection(filename)) {
-			String sql = "SELECT RB_REQ_ID, E_ID, RB_REQ_AMT, APPROVAL, S_ID FROM RB_REQUEST WHERE RB_REQ_ID=?";
+			String sql = "SELECT RB_REQ_ID, E_ID, RB_REQ_AMT, APPROVAL, S_ID FROM RB_REQUEST WHERE E_ID=?";
 			PreparedStatement stmt = con.prepareStatement(sql);
-			stmt.setInt(1, rB_REQ_ID);
+			stmt.setInt(1, e_ID);
 			ResultSet ers = stmt.executeQuery();
 			while (ers.next()) {
 				int RB_REQ_ID = ers.getInt("RB_REQ_ID");
@@ -100,11 +100,11 @@ public class RB_RequestImpl implements RB_RequestDAO {
 		}
 
 	@Override
-	public RB_Request deleteRB_Request(int rB_REQ_ID) {
+	public RB_Request deleteRB_Request(int e_ID) {
 		try (Connection con = ConnectionUtil.getConnection(filename)) {
-			String sql = "DELETE FROM RB_REQUEST WHERE RB_REQ_ID=?";
+			String sql = "DELETE FROM RB_REQUEST WHERE E_ID=?";
 			PreparedStatement p = con.prepareStatement(sql);
-			p.setInt(1, rB_REQ_ID);
+			p.setInt(1, e_ID);
 			p.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

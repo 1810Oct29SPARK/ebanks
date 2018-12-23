@@ -9,7 +9,7 @@ window.onload = function() {
 }
 
 function populateUser() {
-	//send a get request to localhost:7001/SessionDemo/session
+	//send a get request to localhost:7001/SealSanctuary/session
 	fetch("http://localhost:7001/SealSanctuary/session").then(function(response) {
 		return response.json();
 	}).then(function(data) {
@@ -21,8 +21,8 @@ function populateUser() {
 			//define behavior for user returned 
 			user = data;
 			//clientside rendering starts here
-			document.getElementbyId("username").innerText = user.username;
 			document.getElementbyId("firstname").innerText = user.firstname;
+			document.getElementbyId("lastname").innerText = user.lastname;
 			document.getElementbyId("lastname").innerText = user.lastname;
 			document.getElementbyId("email").innerText = user.email;
 			
