@@ -22,7 +22,7 @@ public class ProfileServlet extends HttpServlet {
 		//Check whether as session exists for the incoming request
 		HttpSession session = request.getSession(false);
 		if (session != null) {
-			request.getRequestDispatcher("profile.html").forward(request, response);
+			request.getRequestDispatcher("information.html").forward(request, response);
 		} else {
 			System.out.println("testing redirect");
 			response.sendRedirect("login");

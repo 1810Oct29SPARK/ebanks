@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.beans.RB_Request;
 import com.revature.impl.RB_RequestImpl;
-import com.revature.service.RB_RequestService;
+
 
 public class RB_RequestServlet extends HttpServlet {
 	RB_RequestServlet() {

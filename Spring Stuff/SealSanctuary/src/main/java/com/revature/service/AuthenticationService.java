@@ -10,7 +10,7 @@ import com.revature.impl.EmployeeImpl;
 public class AuthenticationService {
 
 	public Employee isValidUser(Credentials credentials) {
-		Employee u = null;
+		Employee e = null;
 		EmployeeDAO emim = new EmployeeImpl();
 		List<Employee> employeeList = emim.getEmployee();
 		String username = credentials.getUsername();
@@ -20,12 +20,12 @@ public class AuthenticationService {
 			
 			for(Employee emp : employeeList) {
 				if(username.equals(emp.getLOGIN()) && password.equals(emp.getPASS())) {
-					Employee e = emim.getEmployeeByLogin(username);
-					u = new Employee(e.getE_ID(), e.getLOGIN(), e.getPASS(), e.getFIRSTNAME(), e.getLASTNAME(), e.getEMAIL(), e.getPHONE(), e.getADDRESS(), e.getSUPERVISOR(), e.getREPORTSTO());
+				e=emp;
 				}
 			}
 			}
-		return u;
+		System.out.println(e);
+		return e;
 		}
 	
 }

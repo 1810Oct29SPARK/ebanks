@@ -27,16 +27,16 @@ public class SessionServlet extends HttpServlet {
 		HttpSession session = req.getSession(false);
 		if (session != null) {
 			try {
-			int E_ID = Integer.parseInt(session.getAttribute("E_ID").toString());
-			String LOGIN = session.getAttribute("LOGIN").toString();
-			String PASS = session.getAttribute("PASS").toString();
-			String FIRSTNAME = session.getAttribute("FIRSTNAME").toString();
-			String LASTNAME = session.getAttribute("LASTNAME").toString();
-			String EMAIL = session.getAttribute("EMAIL").toString();
-			String PHONE = session.getAttribute("PHONE").toString();
-			String ADDRESS = session.getAttribute("ADDRESS").toString();
-			int SUPERVISOR = Integer.parseInt(session.getAttribute("SUPERVISOR").toString());
-			int REPORTSTO = Integer.parseInt(session.getAttribute("REPORTSTO").toString());
+			int E_ID = Integer.parseInt(session.getAttribute("e_id").toString());
+			String LOGIN = session.getAttribute("login").toString();
+			String PASS = session.getAttribute("pass").toString();
+			String FIRSTNAME = session.getAttribute("firstname").toString();
+			String LASTNAME = session.getAttribute("lastname").toString();
+			String EMAIL = session.getAttribute("email").toString();
+			String PHONE = session.getAttribute("phone").toString();
+			String ADDRESS = session.getAttribute("address").toString();
+			int SUPERVISOR = Integer.parseInt(session.getAttribute("supervisor").toString());
+			int REPORTSTO = Integer.parseInt(session.getAttribute("reportsto").toString());
 			
 
 			Employee e = new Employee(E_ID, LOGIN, PASS, FIRSTNAME, LASTNAME, EMAIL, PHONE, ADDRESS, SUPERVISOR, REPORTSTO);
@@ -57,16 +57,16 @@ public class SessionServlet extends HttpServlet {
 		HttpSession session = req.getSession(false);
 		if (session != null) {
 			try {
-			int E_ID = Integer.parseInt(session.getAttribute("E_ID").toString());
-			String LOGIN = session.getAttribute("LOGIN").toString();
-			String PASS = session.getAttribute("PASS").toString();
-			String FIRSTNAME = session.getAttribute("FIRSTNAME").toString();
-			String LASTNAME = session.getAttribute("LASTNAME").toString();
-			String EMAIL = session.getAttribute("EMAIL").toString();
-			String PHONE = session.getAttribute("PHONE").toString();
-			String ADDRESS = session.getAttribute("ADDRESS").toString();
-			int SUPERVISOR = Integer.parseInt(session.getAttribute("SUPERVISOR").toString());
-			int REPORTSTO = Integer.parseInt(session.getAttribute("REPORTSTO").toString());
+			int E_ID = Integer.parseInt(session.getAttribute("e_id").toString());
+			String LOGIN = session.getAttribute("login").toString();
+			String PASS = session.getAttribute("pass").toString();
+			String FIRSTNAME = session.getAttribute("firstname").toString();
+			String LASTNAME = session.getAttribute("lastname").toString();
+			String EMAIL = session.getAttribute("email").toString();
+			String PHONE = session.getAttribute("phone").toString();
+			String ADDRESS = session.getAttribute("address").toString();
+			int SUPERVISOR = Integer.parseInt(session.getAttribute("superior").toString());
+			int REPORTSTO = Integer.parseInt(session.getAttribute("reportsto").toString());
 			
 
 			Employee e = new Employee(E_ID, LOGIN, PASS, FIRSTNAME, LASTNAME, EMAIL, PHONE, ADDRESS, SUPERVISOR, REPORTSTO);

@@ -41,7 +41,6 @@ public class LoginServlet extends HttpServlet {
 		//grab params from request 
 		Credentials cred = new Credentials(req.getParameter("username"),req.getParameter("password"));
 		Employee e = authService.isValidUser(cred);
-		System.out.println(e);
 		//set user information as session attributes
 		if (e != null) {
 			session.setAttribute("e_id", e.getE_ID());
@@ -54,7 +53,6 @@ public class LoginServlet extends HttpServlet {
 			session.setAttribute("supervisor", e.getSUPERVISOR());
 			session.setAttribute("reportsto", e.getREPORTSTO());
 			session.setAttribute("problem", null);
-			
 
 			resp.sendRedirect("index.html");
 			

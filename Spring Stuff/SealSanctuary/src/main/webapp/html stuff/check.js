@@ -25,6 +25,8 @@ function populateUser() {
 			document.getElementbyId("lastname").innerText = user.lastname;
 			document.getElementbyId("lastname").innerText = user.lastname;
 			document.getElementbyId("email").innerText = user.email;
+			document.getElementbyId("phone").innerText = user.phone;
+			document.getElementbyId("address").innerText = user.address;
 			
 		}
 	});
